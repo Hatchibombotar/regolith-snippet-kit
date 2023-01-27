@@ -1,0 +1,16 @@
+{
+  "name": "regolith-snippets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "main": "node main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^8.1.0",
+    "terminal-kit": "^3.0.0"
+  }
+}

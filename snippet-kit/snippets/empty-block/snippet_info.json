@@ -1,0 +1,15 @@
+{
+    "name": "Empty Block",
+    "author": "Hatchibombotar",
+    "categories": ["Blocks"],
+    "input_data": {
+        "namespace": {
+            "display": "Namespace (_____:myblock)",
+            "default": "namespace"
+        },
+        "name": {
+            "display": "Block Name (namespace:_____)",
+            "default": "name"
+        }
+    }
+}

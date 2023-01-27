@@ -1,0 +1,11 @@
+{
+    "filters": [
+        {
+            "runWith": "nodejs",
+            "script": "./src/index.js",
+            "name": "Snippet Kit",
+            "description": "A tool for Regolith that allows you quick access to a collection of pack snippets.",
+            "requirements": "./"
+        }
+    ]
+}
