@@ -1,8 +1,9 @@
-const { exec } = require("child_process");
+const { exec } = require("child_process")
 
 const FILTER_DIR = process.env.FILTER_DIR
-const path = `${FILTER_DIR}/../main.js`
 
-exec('cmd.exe' + ['/c', 'start', 'node', path, FILTER_DIR].join(" "), () => {
+const command = `cd "${FILTER_DIR}" & start /wait npm run main ${FILTER_DIR}`
+
+exec(command, (err, sdo, sdr) => {
     console.log("Complete!")
 })

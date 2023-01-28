@@ -2,9 +2,9 @@
   "name": "regolith-snippets",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
-    "main": "node main.js"
+    "main": "node src/main.js"
   },
   "keywords": [],
   "author": "",

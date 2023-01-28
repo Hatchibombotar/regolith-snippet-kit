@@ -28,7 +28,7 @@ const input = (...args) => {
 }
 
 async function selectCategory() {
-    const categories = require("./categories.json")
+    const categories = require("../categories.json")
 
     const result = await menu([...categories, "Cancel"])
     if (result.selectedText == "Cancel") {
@@ -39,14 +39,10 @@ async function selectCategory() {
 }
 
 function getSnippets(forCategory) {
-    const FILTER_DIR = process.argv[2]
-    const snippetFolder = path.resolve(FILTER_DIR, "../snippets/")
     let snippets = []
 
     // console.log(snippetFolder)
-    const snippetPaths = glob(`/snippets/*/`, {
-        "root": path.resolve(FILTER_DIR, "../")
-    })
+    const snippetPaths = glob(`snippets/*/`)
 
     for (const snippetPath of snippetPaths) {
         const info = JSON.parse(fs.readFileSync(snippetPath + "\\snippet_info.json"))
@@ -62,7 +58,7 @@ function getSnippets(forCategory) {
 }
 
 async function selectSnippet(snippets) {
-    const result = await menu([snippets.map(x => x.info.name), "Cancel"])
+    const result = await menu([...snippets.map(x => x.info.name), "Cancel"])
     if (result.selectedText == "Cancel") {
         terminal.processExit(0)
     }
@@ -92,8 +88,7 @@ async function importSnippet(snippet, data) {
     })
 
     const snippetFileDirectory = path.resolve(snippet.path, "./data/")
-    const projectFileDirectory = process.cwd()
-
+    const projectFileDirectory = path.resolve("../../../tmp")
  
     for (const filePath of allFiles) {
         const {dir, name, ext} = path.parse(filePath)
