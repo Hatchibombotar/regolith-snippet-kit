@@ -1,0 +1,56 @@
+{
+    "format_version": "1.19.50",
+    "minecraft:block": {
+        "description": {
+            "identifier": "{namespace}:{name}",
+            "properties": {
+                "{namespace}:rotation": [6, 2, 3, 4, 5]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "{geometry}",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "{texture}"
+                }
+            },
+            "minecraft:on_player_placing": {
+                "event": "on_placed"
+            },
+            "minecraft:rotation": [ 0, 0, 0 ]
+        },
+        "events": {
+            "on_placed": {
+                "set_block_property": {
+                    "{namespace}:rotation": "query.cardinal_facing_2d"
+                }
+            }
+        },
+        "permutations": [
+            { // north
+                "condition": "q.block_property('{namespace}:rotation') == 2",
+                "components": {
+                    "minecraft:rotation": [ 0, 180, 0 ]
+                }
+            },
+            { // east
+                "condition": "q.block_property('{namespace}:rotation') == 4",
+                "components": {
+                    "minecraft:rotation": [ 0, 270, 0 ]
+                }
+            },
+            { // south
+                "condition": "q.block_property('{namespace}:rotation') == 3",
+                "components": {
+                    "minecraft:rotation": [ 0, 0, 0 ]
+                }
+            },
+            { // west
+                "condition": "q.block_property('{namespace}:rotation') == 5",
+                "components": {
+                    "minecraft:rotation": [ 0, 90, 0 ]
+                }
+            }
+        ]
+    }
+}

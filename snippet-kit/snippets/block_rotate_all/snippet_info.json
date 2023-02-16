@@ -1,0 +1,23 @@
+{
+    "name": "Rotate in all axis",
+    "author": "Hatchibombotar",
+    "categories": ["Blocks"],
+    "input_data": {
+        "namespace": {
+            "display": "Namespace (e.g. namespace)",
+            "default": "namespace"
+        },
+        "name": {
+            "display": "Block Name (e.g. my_block)",
+            "default": "name"
+        },
+        "geometry": {
+            "display": "Geometry Name (e.g geometry.my_block)",
+            "default": "geometry."
+        },
+        "texture": {
+            "display": "Texture Name (defined in terrain_texture.json)",
+            "default": "my_texture"
+        }
+    }
+}
