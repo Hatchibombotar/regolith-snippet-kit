@@ -144,6 +144,8 @@ async function main() {
 
     await importSnippet(snippet, data)
 
+    print("\n\nClose this terminal to finish compilation!")
+
     terminal.processExit(0)
 }
 
