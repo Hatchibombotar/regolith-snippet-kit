@@ -2,6 +2,7 @@ const terminal = require('terminal-kit').terminal
 const fs = require('fs')
 const glob = require("glob").sync
 const path = require("path")
+const JSONC = require("jsonc").safe
 
 const {insertVariablesInJSON} = require("./utils")
 
@@ -108,7 +109,11 @@ async function importSnippet(snippet, data) {
 
         if (ext == ".json") {
             const oldData = String(fs.readFileSync(filePath))
-            const oldJSONData = JSON.parse(oldData)
+            const [parseError, oldJSONData] = JSONC.parse(oldData)
+            if (parseError) {
+                console.error("[Internal Error] error passing snippet json", parseError)
+                return
+            }
             
             const newJSONData = insertVariablesInJSON(oldJSONData, data)
 
@@ -130,6 +135,8 @@ async function main() {
 
     const snippet = await selectSnippet(snippets)
     terminal.clear()
+    
+    if (snippet === undefined) return
 
     terminal.cyan(`${snippet.info.name}:\n- By ${snippet.info.author}\n`)
 
