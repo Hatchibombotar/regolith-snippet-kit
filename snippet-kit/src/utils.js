@@ -37,7 +37,7 @@ function insertVariablesInJSON(json, variables) {
             if (propValueMatches) {
                 if (propValueMatches.length == 1 && json[prop].slice(0, 1) == "{" && json[prop].slice(-1) == "}") {
                     // Replace strings with one variable with the value of the variable
-                    const variableName = propValueMatches[0].slice(2, -1)
+                    const variableName = propValueMatches[0].slice(1, -1)
                     const variableValue = variables[variableName]
                     if (variableValue == undefined) {
                         console.error(`Variable "${variableName}" has not been given a value`)
