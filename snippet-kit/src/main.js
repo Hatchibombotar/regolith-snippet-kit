@@ -84,11 +84,11 @@ async function getSnippetDataInput(snippet) {
 }
 
 async function importSnippet(snippet, data) {
-    const allFiles = glob(`/data/**/*.*`, {
+    const allFiles = glob(`/packs/**/*.*`, {
         "root": snippet.path
     })
 
-    const snippetFileDirectory = path.resolve(snippet.path, "./data/")
+    const snippetFileDirectory = path.resolve(snippet.path, "./packs/")
     const projectFileDirectory = path.resolve("../../../tmp")
  
     for (const filePath of allFiles) {
